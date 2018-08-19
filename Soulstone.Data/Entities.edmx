@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SoulstoneModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SoulstoneModelStoreContainer">
+          <EntitySet Name="Host" EntityType="SoulstoneModel.Store.Host" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Playlist" EntityType="SoulstoneModel.Store.Playlist" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlaylistSong" EntityType="SoulstoneModel.Store.PlaylistSong" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Song" EntityType="SoulstoneModel.Store.Song" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="SoulstoneModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Playlist_Host" Association="SoulstoneModel.Store.FK_Playlist_Host">
+            <End Role="Host" EntitySet="Host" />
+            <End Role="Playlist" EntitySet="Playlist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlist_User" Association="SoulstoneModel.Store.FK_Playlist_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Playlist" EntitySet="Playlist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaylistSong_Playlist" Association="SoulstoneModel.Store.FK_PlaylistSong_Playlist">
+            <End Role="Playlist" EntitySet="Playlist" />
+            <End Role="PlaylistSong" EntitySet="PlaylistSong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaylistSong_Song" Association="SoulstoneModel.Store.FK_PlaylistSong_Song">
+            <End Role="Song" EntitySet="Song" />
+            <End Role="PlaylistSong" EntitySet="PlaylistSong" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Host">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Playlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HostId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PlaylistSong">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PlaylistId" Type="int" Nullable="false" />
+          <Property Name="SongId" Type="int" Nullable="false" />
+          <Property Name="Position" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Album" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Artist" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Duration" Type="time" Nullable="false" />
+          <Property Name="Artwork" Type="image" />
+          <Property Name="Bitrate" Type="int" Nullable="false" />
+          <Property Name="Hash" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NickName" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Playlist_Host">
+          <End Role="Host" Type="SoulstoneModel.Store.Host" Multiplicity="1" />
+          <End Role="Playlist" Type="SoulstoneModel.Store.Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Host">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlist">
+              <PropertyRef Name="HostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlist_User">
+          <End Role="User" Type="SoulstoneModel.Store.User" Multiplicity="1" />
+          <End Role="Playlist" Type="SoulstoneModel.Store.Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlist">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaylistSong_Playlist">
+          <End Role="Playlist" Type="SoulstoneModel.Store.Playlist" Multiplicity="1" />
+          <End Role="PlaylistSong" Type="SoulstoneModel.Store.PlaylistSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Playlist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaylistSong">
+              <PropertyRef Name="PlaylistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaylistSong_Song">
+          <End Role="Song" Type="SoulstoneModel.Store.Song" Multiplicity="1" />
+          <End Role="PlaylistSong" Type="SoulstoneModel.Store.PlaylistSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaylistSong">
+              <PropertyRef Name="SongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SoulstoneModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SoulstoneEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Songs" EntityType="SoulstoneModel.Song" />
+          <EntitySet Name="Hosts" EntityType="SoulstoneModel.Host" />
+          <EntitySet Name="Users" EntityType="SoulstoneModel.User" />
+          <EntitySet Name="PlaylistSongs" EntityType="SoulstoneModel.PlaylistSong" />
+          <AssociationSet Name="FK_PlaylistSong_Song" Association="SoulstoneModel.FK_PlaylistSong_Song">
+            <End Role="Song" EntitySet="Songs" />
+            <End Role="PlaylistSong" EntitySet="PlaylistSongs" />
+          </AssociationSet>
+          <EntitySet Name="Playlists" EntityType="SoulstoneModel.Playlist" />
+          <AssociationSet Name="FK_Playlist_Host" Association="SoulstoneModel.FK_Playlist_Host">
+            <End Role="Host" EntitySet="Hosts" />
+            <End Role="Playlist" EntitySet="Playlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlist_User" Association="SoulstoneModel.FK_Playlist_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Playlist" EntitySet="Playlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlaylistSong_Playlist" Association="SoulstoneModel.FK_PlaylistSong_Playlist">
+            <End Role="Playlist" EntitySet="Playlists" />
+            <End Role="PlaylistSong" EntitySet="PlaylistSongs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Album" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Artist" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Genre" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Duration" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Artwork" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Bitrate" Type="Int32" Nullable="false" />
+          <Property Type="String" Name="Hash" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FileName" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PlaylistSongs" Relationship="SoulstoneModel.FK_PlaylistSong_Song" FromRole="Song" ToRole="PlaylistSong" />
+        </EntityType>
+        <EntityType Name="Host">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Playlists" Relationship="SoulstoneModel.FK_Playlist_Host" FromRole="Host" ToRole="Playlist" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NickName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Playlists" Relationship="SoulstoneModel.FK_Playlist_User" FromRole="User" ToRole="Playlist" />
+        </EntityType>
+        <EntityType Name="PlaylistSong">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PlaylistId" Nullable="false" />
+          <Property Type="Int32" Name="SongId" Nullable="false" />
+          <NavigationProperty Name="Song" Relationship="SoulstoneModel.FK_PlaylistSong_Song" FromRole="PlaylistSong" ToRole="Song" />
+          <NavigationProperty Name="Playlist" Relationship="SoulstoneModel.FK_PlaylistSong_Playlist" FromRole="PlaylistSong" ToRole="Playlist" />
+          <Property Type="Int32" Name="Position" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PlaylistSong_Song">
+          <End Type="SoulstoneModel.Song" Role="Song" Multiplicity="1" />
+          <End Type="SoulstoneModel.PlaylistSong" Role="PlaylistSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaylistSong">
+              <PropertyRef Name="SongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Playlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="HostId" Nullable="false" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Host" Relationship="SoulstoneModel.FK_Playlist_Host" FromRole="Playlist" ToRole="Host" />
+          <NavigationProperty Name="User" Relationship="SoulstoneModel.FK_Playlist_User" FromRole="Playlist" ToRole="User" />
+          <NavigationProperty Name="PlaylistSongs" Relationship="SoulstoneModel.FK_PlaylistSong_Playlist" FromRole="Playlist" ToRole="PlaylistSong" />
+        </EntityType>
+        <Association Name="FK_Playlist_Host">
+          <End Type="SoulstoneModel.Host" Role="Host" Multiplicity="1" />
+          <End Type="SoulstoneModel.Playlist" Role="Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Host">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlist">
+              <PropertyRef Name="HostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlist_User">
+          <End Type="SoulstoneModel.User" Role="User" Multiplicity="1" />
+          <End Type="SoulstoneModel.Playlist" Role="Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Playlist">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlaylistSong_Playlist">
+          <End Type="SoulstoneModel.Playlist" Role="Playlist" Multiplicity="1" />
+          <End Type="SoulstoneModel.PlaylistSong" Role="PlaylistSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Playlist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlaylistSong">
+              <PropertyRef Name="PlaylistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SoulstoneModelStoreContainer" CdmEntityContainer="SoulstoneEntities">
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="SoulstoneModel.Song">
+              <MappingFragment StoreEntitySet="Song">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Album" ColumnName="Album" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Artwork" ColumnName="Artwork" />
+                <ScalarProperty Name="Bitrate" ColumnName="Bitrate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hosts">
+            <EntityTypeMapping TypeName="SoulstoneModel.Host">
+              <MappingFragment StoreEntitySet="Host">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SoulstoneModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaylistSongs">
+            <EntityTypeMapping TypeName="SoulstoneModel.PlaylistSong">
+              <MappingFragment StoreEntitySet="PlaylistSong">
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="SongId" ColumnName="SongId" />
+                <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Playlists">
+            <EntityTypeMapping TypeName="SoulstoneModel.Playlist">
+              <MappingFragment StoreEntitySet="Playlist">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="HostId" ColumnName="HostId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

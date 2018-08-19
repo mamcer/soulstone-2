@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="TranslateCoverageXml" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Target Name="TranslateCoverageXml">
+  <ItemGroup>
+    <CoverageFiles Include="$(TestsDir)\opencover.xml" />
+  </ItemGroup>
+
+  <XslTransformation XmlInputPaths="%(CoverageFiles.Identity)" 
+    XslInputPath="$(MSBuildProjectDirectory)\opencover_to_ncover.xslt" 
+    OutputPaths="$(TestsDir)\coverage.xml" />
+</Target>
+</Project>

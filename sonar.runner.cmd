@@ -1,0 +1,1 @@
+c:\sonar-runner\bin\sonar-runner -D sonar.profile=NetProfile -D sonar.login=admin -D sonar.host.url=http://mc:9000 -D sonar.password=admin

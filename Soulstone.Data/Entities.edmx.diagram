@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a254a2d7a7e34fcb9ea2fa431c991913" Name="Diagram1">
+        <EntityTypeShape EntityType="SoulstoneModel.Song" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoulstoneModel.Host" Width="1.5" PointX="3.625" PointY="0.75" />
+        <EntityTypeShape EntityType="SoulstoneModel.User" Width="1.5" PointX="5.5" PointY="0.75" />
+        <EntityTypeShape EntityType="SoulstoneModel.PlaylistSong" Width="1.5" PointX="4.5" PointY="7.75" />
+        <AssociationConnector Association="SoulstoneModel.FK_PlaylistSong_Song" />
+        <EntityTypeShape EntityType="SoulstoneModel.Playlist" Width="1.5" PointX="8.0075909607147757" PointY="4.4276645651215984" />
+        <AssociationConnector Association="SoulstoneModel.FK_Playlist_Host" />
+        <AssociationConnector Association="SoulstoneModel.FK_Playlist_User" />
+        <AssociationConnector Association="SoulstoneModel.FK_PlaylistSong_Playlist" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
