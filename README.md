@@ -6,7 +6,7 @@ In `original` branch you will find the original source code for this application
 
 ## Description 
 
-Soulstone 2 is the second version of the [Silverlight](https://en.wikipedia.org/wiki/Microsoft_Silverlight) application written in 2009. In fact is a complete rewrite, they basically only share the name.
+Soulstone 2 is the second version of the [Silverlight](https://en.wikipedia.org/wiki/Microsoft_Silverlight) application [written in 2009](https://github.com/mamcer/soulstone). In fact is a complete rewrite, they basically only share the name.
 
 The main goal and functionality in this case is to manage different hosts (endpoints) which contains music. You can remotely contact them, see all the music they offer, create playlists and remotely control the playback of your music.
 You can then have a headless endpoint (it just need some speakers attached) in your living room, another in your room, etc and from a single point control the music playback on all of them in real time.
