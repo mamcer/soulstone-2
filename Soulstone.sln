@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Mp3", "Soulstone.Mp3\Soulstone.Mp3.csproj", "{D45A0720-6011-4C22-A17B-36B6BCE52FD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Mp3", "src\Soulstone.Mp3\Soulstone.Mp3.csproj", "{D45A0720-6011-4C22-A17B-36B6BCE52FD3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{73799F7D-9ECF-49E6-B4F1-37F08B1197FB}"
 	ProjectSection(SolutionItems) = preProject
 		FXCop.ruleset = FXCop.ruleset
-		Common\GlobalAssemblyInfo.cs = Common\GlobalAssemblyInfo.cs
+		src\Common\GlobalAssemblyInfo.cs = src\Common\GlobalAssemblyInfo.cs
 		open.cover.cmd = open.cover.cmd
 		open.cover.proj = open.cover.proj
 		report.generator.cmd = report.generator.cmd
@@ -18,36 +18,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TestSettings.testsettings = TestSettings.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Scanner", "Soulstone.Scanner\Soulstone.Scanner.csproj", "{93809993-85C8-427A-AEFB-0FBC9A473A9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Scanner", "src\Soulstone.Scanner\Soulstone.Scanner.csproj", "{93809993-85C8-427A-AEFB-0FBC9A473A9B}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Soulstone.Database", "Soulstone.Database\Soulstone.Database.sqlproj", "{9DE6240D-569B-4D73-8E9A-138028680B5A}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Soulstone.Database", "src\Soulstone.Database\Soulstone.Database.sqlproj", "{9DE6240D-569B-4D73-8E9A-138028680B5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Data", "Soulstone.Data\Soulstone.Data.csproj", "{C84D77FC-9AA1-4220-AEDB-3F67AE49059A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Data", "src\Soulstone.Data\Soulstone.Data.csproj", "{C84D77FC-9AA1-4220-AEDB-3F67AE49059A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{673FBC51-DF5E-45F0-BBBE-29284CA65A54}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Player", "src\Soulstone.Player\Soulstone.Player.csproj", "{FFD563FE-0EC7-48E7-9892-93D8F32DEAD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Player", "Soulstone.Player\Soulstone.Player.csproj", "{FFD563FE-0EC7-48E7-9892-93D8F32DEAD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Api", "src\Soulstone.Api\Soulstone.Api.csproj", "{B0DE1F59-9C7A-45CE-A0BB-41498216BA03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Api", "Soulstone.Api\Soulstone.Api.csproj", "{B0DE1F59-9C7A-45CE-A0BB-41498216BA03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.ControlPanel", "src\Soulstone.ControlPanel\Soulstone.ControlPanel.csproj", "{8DD21F6D-055D-45ED-BB39-F421053A2CE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.ControlPanel", "Soulstone.ControlPanel\Soulstone.ControlPanel.csproj", "{8DD21F6D-055D-45ED-BB39-F421053A2CE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Entities", "src\Soulstone.Entities\Soulstone.Entities.csproj", "{570EE87B-6716-4956-BF43-82D6013EDF48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Entities", "Soulstone.Entities\Soulstone.Entities.csproj", "{570EE87B-6716-4956-BF43-82D6013EDF48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Relay", "src\Soulstone.Relay\Soulstone.Relay.csproj", "{4C60F8F9-7D0C-415F-8998-47CD92DE29E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Relay", "Soulstone.Relay\Soulstone.Relay.csproj", "{4C60F8F9-7D0C-415F-8998-47CD92DE29E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.Core", "src\Common\CrossCutting.Core\CrossCutting.Core.csproj", "{C9213684-EAB1-4C17-9313-534709C4FCB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.Core", "Common\CrossCutting.Core\CrossCutting.Core.csproj", "{C9213684-EAB1-4C17-9313-534709C4FCB6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.MainModule", "Common\CrossCutting.MainModule\CrossCutting.MainModule.csproj", "{CD7C9E78-0D7C-4B4E-8E5D-59459360B1B7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Api.Test", "Soulstone.Api.Test\Soulstone.Api.Test.csproj", "{7654DE1B-E34A-48A4-A63C-97815561E96E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soulstone.Data.Test", "Soulstone.Data.Test\Soulstone.Data.Test.csproj", "{A6B44287-D768-498F-9080-D0CFD70FDE1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.MainModule", "src\Common\CrossCutting.MainModule\CrossCutting.MainModule.csproj", "{CD7C9E78-0D7C-4B4E-8E5D-59459360B1B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,20 +88,12 @@ Global
 		{CD7C9E78-0D7C-4B4E-8E5D-59459360B1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7C9E78-0D7C-4B4E-8E5D-59459360B1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7C9E78-0D7C-4B4E-8E5D-59459360B1B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7654DE1B-E34A-48A4-A63C-97815561E96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7654DE1B-E34A-48A4-A63C-97815561E96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7654DE1B-E34A-48A4-A63C-97815561E96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7654DE1B-E34A-48A4-A63C-97815561E96E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6B44287-D768-498F-9080-D0CFD70FDE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6B44287-D768-498F-9080-D0CFD70FDE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6B44287-D768-498F-9080-D0CFD70FDE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6B44287-D768-498F-9080-D0CFD70FDE1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		SolutionGuid = {1FF53637-3B03-43CB-8B60-B439F5F26231}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
