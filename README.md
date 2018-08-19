@@ -1,6 +1,6 @@
 # Soulstone 2
 
-A Rest API and several Winforms applications from 2014
+A WebAPI, two winforms and a WPF application from 2014
 
 In `original` branch you will find the original source code for this application. In `master` an upgraded, refactored version.
 
