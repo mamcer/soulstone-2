@@ -1,6 +1,6 @@
 echo off
 
-@REM author: mario.moreno@live.com
+@REM author: m4mc3r@gmail.com
 
 echo open cover script
 

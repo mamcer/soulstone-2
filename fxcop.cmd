@@ -1,7 +1,7 @@
 echo off
 
 echo fxcop
-echo author: Mario Moreno (mario.moreno@live.com)
+echo author: Mario Moreno (m4mc3r@gmail.com)
 
 rem set local variables
 set start_time=%time%
